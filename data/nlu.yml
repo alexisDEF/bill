@@ -1,0 +1,68 @@
+version: "3.0"
+
+nlu:
+- intent: reservation
+  examples: |
+    - Je voudrais réserver une table pour [4 personnes](nombre_personnes) le [12 mai](date) à [19h](heure)
+    - Réservation pour [2 personnes](nombre_personnes) le [15 mai](date)
+    - J'aimerais réserver une table pour [6 personnes](nombre_personnes) le [20 mai](date) à [20h](heure)
+    - Pouvez-vous réserver une table pour [3 personnes](nombre_personnes) le [25 mai](date) à [18h](heure) ?
+    - Est-ce possible de faire une réservation pour [5 personnes](nombre_personnes) le [30 mai](date) à [21h](heure) ?
+    - Réserver une table pour [8 personnes](nombre_personnes) le [5 juin](date) à [19h](heure)
+    - Est-il possible de réserver une table pour [10 personnes](nombre_personnes) le [10 juin](date) à [20h](heure) ?
+    - Pouvez-vous me réserver une table pour [2 personnes](nombre_personnes) le [15 juin](date) à [18h](heure) ?
+    - J'aimerais faire une réservation pour [4 personnes](nombre_personnes) le [20 juin](date) à [19h](heure)
+    
+
+- intent: disponibilite
+  examples: |
+    - Est-ce que vous avez des tables disponibles le [10 mai](date) pour [2 personnes](nombre_personnes) ?
+    - Y a-t-il une table disponible pour [6 personnes](nombre_personnes) le [20 mai](date) à [20h](heure) ?
+    - Avez-vous des places disponibles pour [4 personnes](nombre_personnes) le [15 juin](date) à [18h](heure) ?
+    - Quelles sont vos disponibilités pour [3 personnes](nombre_personnes) le [25 juin](date) à [19h](heure) ?
+    - Est-il possible de réserver une table pour [5 personnes](nombre_personnes) le [30 juin](date) à [20h](heure) ?
+    - Pouvez-vous me dire s'il y a une table disponible pour [8 personnes](nombre_personnes) le [5 juillet](date) à [19h](heure) ?
+    
+
+- intent: annulation
+  examples: |
+    - Je voudrais annuler ma réservation pour [demain](date)
+    - Annuler la réservation pour le [18 mai](date)
+    - Je souhaite annuler ma réservation pour [15 juin](date)
+    - Pouvez-vous annuler ma réservation pour [20 juin](date) s'il vous plaît ?
+    - J'aimerais annuler ma réservation pour [25 juin](date)
+    - Est-il possible d'annuler ma réservation pour [30 juin](date) ?
+    
+
+- intent: menu_jour
+  examples: |
+    - Quel est le menu du jour ?
+    - Pouvez-vous me dire ce qu'il y a au menu aujourd'hui ?
+    - Quels plats proposez-vous aujourd'hui ?
+    - Y a-t-il des plats spéciaux au menu aujourd'hui ?
+    - Avez-vous des suggestions de plats pour aujourd'hui ?
+    - Est-ce que le menu d'aujourd'hui inclut des plats végétariens ?
+    - Quels sont les plats vedettes du menu d'aujourd'hui ?
+    
+
+- intent: allergenes
+  examples: |
+    - Quels sont les allergènes présents dans vos plats ?
+    - Avez-vous une liste des allergènes pour vos plats ?
+    - Pouvez-vous me dire quels sont les allergènes dans le plat X ?
+    - Y a-t-il des plats sans allergènes dans votre menu ?
+    - Est-ce que vos plats contiennent des fruits de mer ?
+    - Les plats du menu contiennent-ils des noix ?
+    - Quels allergènes dois-je éviter dans vos plats ?
+    
+
+- intent: menu_complet
+  examples: |
+    - Pouvez-vous me donner le lien vers le menu complet ?
+    - Où puis-je trouver le menu complet ?
+    - Est-ce que je peux voir le menu complet en ligne ?
+    - Avez-vous un lien vers le menu complet du restaurant ?
+    - Je voudrais consulter le menu complet, où puis-je le trouver ?
+    - Est-il possible de consulter le menu complet en ligne ?
+    - Où puis-je trouver une liste complète des plats disponibles ?
+    

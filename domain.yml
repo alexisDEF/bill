@@ -1,0 +1,40 @@
+intents:
+  - reservation
+  - disponibilite
+  - annulation
+  - menu_jour
+  - allergenes
+  - menu_complet
+  - inform
+
+entities:
+  - date
+  - nombre_personnes
+  - nom_reservation
+  - telephone
+
+responses:
+  utter_ask_date:
+    - text: "Quelle est la date de votre réservation ?"
+  utter_ask_nombre_personnes:
+    - text: "Pour combien de personnes souhaitez-vous réserver ?"
+  utter_ask_nom_reservation:
+    - text: "Sous quel nom souhaitez-vous faire la réservation ?"
+  utter_ask_telephone:
+    - text: "Pouvez-vous nous donner un numéro de téléphone pour vous contacter ?"
+  utter_confirmation_reservation:
+    - text: "Votre réservation pour le [DATE] à [HEURE] pour [NOMBRE_PERSONNES] personnes a été confirmée. Votre numéro de réservation est [NUMERO_RESERVATION]."
+  utter_confirmation_annulation:
+    - text: "Votre réservation a été annulée avec succès."
+
+actions:
+  - action_reserver_table
+  - action_verifier_disponibilite
+  - action_annuler_reservation
+  - action_obtenir_menu_jour
+  - action_obtenir_allergenes
+  - action_obtenir_menu_complet
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,50 @@
+version: "3.1"
+
+stories:
+- story: Faire une réservation
+  steps:
+  - intent: reservation
+  - action: utter_ask_date
+  - intent: inform
+    entities:
+    - date
+  - action: utter_ask_nombre_personnes
+  - intent: inform
+    entities:
+    - nombre_personnes
+  - action: utter_ask_nom_reservation
+  - intent: inform
+    entities:
+    - nom_reservation
+  - action: utter_ask_telephone
+  - intent: inform
+    entities:
+    - telephone
+  - action: action_reserver_table
+  - action: utter_confirmation_reservation
+
+- story: Vérifier la disponibilité
+  steps:
+  - intent: disponibilite
+  - action: action_verifier_disponibilite
+
+- story: Annuler une réservation
+  steps:
+  - intent: annulation
+  - action: action_annuler_reservation
+  - action: utter_confirmation_annulation
+
+- story: Obtenir le menu du jour
+  steps:
+  - intent: menu_jour
+  - action: action_obtenir_menu_jour
+
+- story: Obtenir la liste des allergènes
+  steps:
+  - intent: allergenes
+  - action: action_obtenir_allergenes
+
+- story: Obtenir le lien vers le menu complet
+  steps:
+  - intent: menu_complet
+  - action: action_obtenir_menu_complet
