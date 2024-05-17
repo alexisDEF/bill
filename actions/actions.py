@@ -26,7 +26,7 @@ class ActionVerifierDisponibilite(Action):
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Logique pour vérifier la disponibilité
         # Exemple de réponse
-        dispatcher.utter_message("Je vais vérifier la disponibilité pour vous.")
+        dispatcher.utter_message("Je vais vérifier la disponibilité pour vous. \n ... \n C'est tout bon")
         
         return []
 
