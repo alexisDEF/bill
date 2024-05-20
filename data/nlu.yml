@@ -1,6 +1,22 @@
 version: "3.0"
 
 nlu:
+- intent: salutation
+  examples: |
+    - Salut
+    - Bonjour
+    - Coucou
+    - Hello
+    - Hey
+
+- intent: au_revoir
+  examples: |
+    - Au revoir
+    - Adieu
+    - Bye
+    - À plus tard
+    - Tchao
+
 - intent: reservation
   examples: |
     - Je voudrais réserver une table pour [4 personnes](nombre_personnes) le [12 mai](date) à [19h](heure)
@@ -12,8 +28,23 @@ nlu:
     - Est-il possible de réserver une table pour [10 personnes](nombre_personnes) le [10 juin](date) à [20h](heure) ?
     - Pouvez-vous me réserver une table pour [2 personnes](nombre_personnes) le [15 juin](date) à [18h](heure) ?
     - J'aimerais faire une réservation pour [4 personnes](nombre_personnes) le [20 juin](date) à [19h](heure)
-    
+    - Je souhaite réserver
+    - Je voudrais réserver
+    - réservation
+    - réserver
 
+- intent: inform
+  examples: |
+    - [12 mai](date)
+    - [4](nombre_personnes)
+    - [4 pers](nombre_personnes)
+    - [Alexis](nom_reservation)
+    - [06 12 34 56 78](telephone)
+    - Le [12 mai](date)
+    - Pour [4 personnes](nombre_personnes)
+    - Au nom de [Alexis](nom_reservation)
+    - Mon numéro est [06 12 34 56 78](telephone)
+    
 - intent: disponibilite
   examples: |
     - Est-ce que vous avez des tables disponibles le [10 mai](date) pour [2 personnes](nombre_personnes) ?
@@ -22,7 +53,6 @@ nlu:
     - Quelles sont vos disponibilités pour [3 personnes](nombre_personnes) le [25 juin](date) à [19h](heure) ?
     - Est-il possible de réserver une table pour [5 personnes](nombre_personnes) le [30 juin](date) à [20h](heure) ?
     - Pouvez-vous me dire s'il y a une table disponible pour [8 personnes](nombre_personnes) le [5 juillet](date) à [19h](heure) ?
-    
 
 - intent: annulation
   examples: |
@@ -32,7 +62,6 @@ nlu:
     - Pouvez-vous annuler ma réservation pour [20 juin](date) s'il vous plaît ?
     - J'aimerais annuler ma réservation pour [25 juin](date)
     - Est-il possible d'annuler ma réservation pour [30 juin](date) ?
-    
 
 - intent: menu_jour
   examples: |
@@ -43,7 +72,6 @@ nlu:
     - Avez-vous des suggestions de plats pour aujourd'hui ?
     - Est-ce que le menu d'aujourd'hui inclut des plats végétariens ?
     - Quels sont les plats vedettes du menu d'aujourd'hui ?
-    
 
 - intent: allergenes
   examples: |
@@ -54,7 +82,6 @@ nlu:
     - Est-ce que vos plats contiennent des fruits de mer ?
     - Les plats du menu contiennent-ils des noix ?
     - Quels allergènes dois-je éviter dans vos plats ?
-    
 
 - intent: menu_complet
   examples: |
@@ -65,4 +92,3 @@ nlu:
     - Je voudrais consulter le menu complet, où puis-je le trouver ?
     - Est-il possible de consulter le menu complet en ligne ?
     - Où puis-je trouver une liste complète des plats disponibles ?
-    

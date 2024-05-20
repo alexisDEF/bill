@@ -1,4 +1,6 @@
 intents:
+  - salutation
+  - au_revoir
   - reservation
   - disponibilite
   - annulation
@@ -13,17 +15,50 @@ entities:
   - nom_reservation
   - telephone
 
+slots:
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+  nombre_personnes:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: nombre_personnes
+  nom_reservation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: nom_reservation
+  telephone:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: telephone
+
 responses:
+  utter_greet:
+    - text: "Bonjour ! Que puis-je faire pour vous aujourd'hui ?"
+
+  utter_goodbye:
+    - text: "Au revoir ! Passez une bonne journée !"
+
   utter_ask_date:
     - text: "Quelle est la date de votre réservation ?"
+
   utter_ask_nombre_personnes:
     - text: "Pour combien de personnes souhaitez-vous réserver ?"
+
   utter_ask_nom_reservation:
     - text: "Sous quel nom souhaitez-vous faire la réservation ?"
+
   utter_ask_telephone:
     - text: "Pouvez-vous nous donner un numéro de téléphone pour vous contacter ?"
+
   utter_confirmation_reservation:
-    - text: "Votre réservation pour le [DATE] à [HEURE] pour [NOMBRE_PERSONNES] personnes a été confirmée. Votre numéro de réservation est [NUMERO_RESERVATION]."
+    - text: "Votre réservation pour le {date} à {heure} pour {nombre_personnes} personnes a été confirmée. Votre numéro de réservation est {numero_reservation}."
+
   utter_confirmation_annulation:
     - text: "Votre réservation a été annulée avec succès."
 

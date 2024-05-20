@@ -1,6 +1,11 @@
-version: "3.1"
-
 stories:
+- story: Salutations et au revoir
+  steps:
+  - intent: salutation
+  - action: utter_greet
+  - intent: au_revoir
+  - action: utter_goodbye
+
 - story: Faire une réservation
   steps:
   - intent: reservation
