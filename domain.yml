@@ -1,75 +1,74 @@
+version: '3.1'
 intents:
-  - salutation
-  - au_revoir
-  - reservation
-  - disponibilite
-  - annulation
-  - menu_jour
-  - allergenes
-  - menu_complet
-  - inform
-
+- allergenes
+- annulation
+- au_revoir
+- disponibilite
+- inform
+- menu_complet
+- menu_jour
+- obtenir_reservation
+- reservation
+- salutation
 entities:
-  - date
-  - nombre_personnes
-  - nom_reservation
-  - telephone
-
+- reservation_id
+- date
+- nombre_personnes
+- nom_reservation
+- telephone
 slots:
   date:
     type: text
     mappings:
-      - type: from_entity
-        entity: date
+    - type: from_entity
+      entity: date
   nombre_personnes:
     type: text
     mappings:
-      - type: from_entity
-        entity: nombre_personnes
+    - type: from_entity
+      entity: nombre_personnes
   nom_reservation:
     type: text
     mappings:
-      - type: from_entity
-        entity: nom_reservation
+    - type: from_entity
+      entity: nom_reservation
   telephone:
     type: text
     mappings:
-      - type: from_entity
-        entity: telephone
-
+    - type: from_entity
+      entity: telephone
+  reservation_id:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: reservation_id
 responses:
   utter_greet:
-    - text: "Bonjour ! Que puis-je faire pour vous aujourd'hui ?"
-
+  - text: Bonjour ! Que puis-je faire pour vous aujourd'hui ?
   utter_goodbye:
-    - text: "Au revoir ! Passez une bonne journée !"
-
+  - text: Au revoir ! Passez une bonne journée !
   utter_ask_date:
-    - text: "Quelle est la date de votre réservation ?"
-
+  - text: Quelle est la date de votre réservation ?
   utter_ask_nombre_personnes:
-    - text: "Pour combien de personnes souhaitez-vous réserver ?"
-
+  - text: Pour combien de personnes souhaitez-vous réserver ?
   utter_ask_nom_reservation:
-    - text: "Sous quel nom souhaitez-vous faire la réservation ?"
-
+  - text: Sous quel nom souhaitez-vous faire la réservation ?
   utter_ask_telephone:
-    - text: "Pouvez-vous nous donner un numéro de téléphone pour vous contacter ?"
-
+  - text: Pouvez-vous nous donner un numéro de téléphone pour vous contacter ?
   utter_confirmation_reservation:
-    - text: "Votre réservation pour le {date} à {heure} pour {nombre_personnes} personnes a été confirmée. Votre numéro de réservation est {numero_reservation}."
-
-  utter_confirmation_annulation:
-    - text: "Votre réservation a été annulée avec succès."
-
+  - text: Votre réservation pour le {date} à {heure} pour {nombre_personnes} personnes a été confirmée. Votre numéro de réservation est {reservation_id}.
+  utter_ask_reservation_id:
+  - text: Quel est votre numéro de réservation ?
 actions:
-  - action_reserver_table
-  - action_verifier_disponibilite
-  - action_annuler_reservation
-  - action_obtenir_menu_jour
-  - action_obtenir_allergenes
-  - action_obtenir_menu_complet
-
+- utter_ask_reservation_id
+- action_obtenir_reservation
+- action_reserver_table
+- action_verifier_disponibilite
+- action_annuler_reservation
+- action_obtenir_menu_jour
+- action_obtenir_allergenes
+- action_obtenir_menu_complet
+- action_confirm_reservation
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

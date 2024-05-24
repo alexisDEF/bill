@@ -1,5 +1,4 @@
-version: "3.0"
-
+version: "3.1"
 nlu:
 - intent: salutation
   examples: |
@@ -8,7 +7,6 @@ nlu:
     - Coucou
     - Hello
     - Hey
-
 - intent: au_revoir
   examples: |
     - Au revoir
@@ -16,7 +14,6 @@ nlu:
     - Bye
     - À plus tard
     - Tchao
-
 - intent: reservation
   examples: |
     - Je voudrais réserver une table pour [4 personnes](nombre_personnes) le [12 mai](date) à [19h](heure)
@@ -32,19 +29,70 @@ nlu:
     - Je voudrais réserver
     - réservation
     - réserver
-
+    - Je veux une table pour [2 personnes](nombre_personnes) le [5 juillet](date)
+    - Réservation pour [3 personnes](nombre_personnes) à [19h](heure) le [12 août](date)
+    - Puis-je réserver une table pour [4 personnes](nombre_personnes) à [20h](heure) le [15 septembre](date) ?
+    - Réservez une table pour [5 personnes](nombre_personnes) à [19h](heure) le [20 octobre](date)
+    - Besoin d'une table pour [6 personnes](nombre_personnes) à [21h](heure) le [25 novembre](date)
+    - Une réservation pour [7 personnes](nombre_personnes) le [30 décembre](date) à [18h](heure), s'il vous plaît
+    - J'ai besoin d'une table pour [8 personnes](nombre_personnes) le [1er janvier](date) à [20h](heure)
+    - Je veux réserver
+    - Nous serons [4](nombre_personnes) le [12 mai](date)
+    - Je souhaite réserver pour [4 personnes](nombre_personnes)
+    - Une table pour [4](nombre_personnes) s'il vous plaît
+    - Réservation de table pour [4 personnes](nombre_personnes)
+    - Reserver
+    - [19h](heure)
+    - reserver
 - intent: inform
   examples: |
     - [12 mai](date)
     - [4](nombre_personnes)
     - [4 pers](nombre_personnes)
+    - Nous serons [4](nombre_personnes)
     - [Alexis](nom_reservation)
     - [06 12 34 56 78](telephone)
     - Le [12 mai](date)
     - Pour [4 personnes](nombre_personnes)
     - Au nom de [Alexis](nom_reservation)
     - Mon numéro est [06 12 34 56 78](telephone)
-    
+    - [20h](heure)
+    - [15 juin](date)
+    - [5] personnes(nombre_personnes)
+    - Nous serons [5 personnes](nombre_personnes)
+    - [Martin](nom_reservation)
+    - Le [30 juin](date) à [18h](heure)
+    - [3] personnes(nombre_personnes)
+    - Mon numéro de téléphone est [06 23 45 67 89](telephone)
+    - [10 mai](date) à [18h](heure)
+    - Mon téléphone est [06060606](telephone)
+    - Nous serons [5](nombre_personnes)
+    - [5 pers](nombre_personnes)
+    - Besoin d'une table pour [5](nombre_personnes)
+    - Vous pouvez me joindre au [06 12 34 56 78](telephone)
+    - Réservation au nom de [Dupont](nom_reservation)
+    - [5] personnes(nombre_personnes) pour le [12 mai](date)
+    - [2] personnes(nombre_personnes) le [10 mai](date)
+    - [19 mai](date)
+    - [9] personnes(nombre_personnes)
+    - mon numéro de téléphone est [06060606](telephone)
+    - [10](nombre_personnes)
+    - [0612345678](telephone)
+    - [0010305600](telephone)
+    - [19 juin](date)
+    - [4 personnes](nombre_personnes)
+    - [Bernard](nom_reservation)
+    - [19 juin](date) [19h](heure)
+    - [5 personnes](nombre_personnes)
+    - [Rimbaud](nom_reservation)
+    - [06 01 03 01 01](telephone)
+    - [10 juin](date) [18h](heure)
+    - [10 personnes](nombre_personnes)
+    - [01 01 03 02 01](telephone)
+    - [4 mai](date) [14h](heure)
+    - [3 personnes](nombre_personnes)
+    - [Bernardou](nom_reservation)
+    - [01 03 01 01 02](telephone)
 - intent: disponibilite
   examples: |
     - Est-ce que vous avez des tables disponibles le [10 mai](date) pour [2 personnes](nombre_personnes) ?
@@ -53,7 +101,11 @@ nlu:
     - Quelles sont vos disponibilités pour [3 personnes](nombre_personnes) le [25 juin](date) à [19h](heure) ?
     - Est-il possible de réserver une table pour [5 personnes](nombre_personnes) le [30 juin](date) à [20h](heure) ?
     - Pouvez-vous me dire s'il y a une table disponible pour [8 personnes](nombre_personnes) le [5 juillet](date) à [19h](heure) ?
-
+    - Avez-vous des tables libres le [1er août](date) pour [2 personnes](nombre_personnes) ?
+    - Y a-t-il une disponibilité pour [4 personnes](nombre_personnes) le [10 septembre](date) à [18h](heure) ?
+    - Est-ce que je peux réserver une table pour [6 personnes](nombre_personnes) le [15 octobre](date) ?
+    - Pouvez-vous vérifier si une table est libre pour [5 personnes](nombre_personnes) le [20 novembre](date) à [19h](heure) ?
+    - Est-ce possible de réserver une table pour [3 personnes](nombre_personnes) le [25 décembre](date) à [21h](heure) ?
 - intent: annulation
   examples: |
     - Je voudrais annuler ma réservation pour [demain](date)
@@ -62,7 +114,11 @@ nlu:
     - Pouvez-vous annuler ma réservation pour [20 juin](date) s'il vous plaît ?
     - J'aimerais annuler ma réservation pour [25 juin](date)
     - Est-il possible d'annuler ma réservation pour [30 juin](date) ?
-
+    - Annulez la table réservée au nom de [Martin](nom_reservation) pour le [5 juillet](date)
+    - Je voudrais annuler la réservation faite au nom de [Alexis](nom_reservation) pour [le 10 août](date)
+    - Annulez ma réservation pour [le 15 septembre](date) à [19h](heure)
+    - Pouvez-vous annuler ma réservation prévue pour [le 20 octobre](date) à [20h](heure) ?
+    - Je veux annuler la réservation au nom de [Dupont](nom_reservation) pour [le 25 novembre](date)
 - intent: menu_jour
   examples: |
     - Quel est le menu du jour ?
@@ -72,7 +128,10 @@ nlu:
     - Avez-vous des suggestions de plats pour aujourd'hui ?
     - Est-ce que le menu d'aujourd'hui inclut des plats végétariens ?
     - Quels sont les plats vedettes du menu d'aujourd'hui ?
-
+    - Quels sont les plats du jour ?
+    - Que proposez-vous comme plats aujourd'hui ?
+    - Quelles sont les options de menu pour aujourd'hui ?
+    - Y a-t-il des plats sans gluten au menu aujourd'hui ?
 - intent: allergenes
   examples: |
     - Quels sont les allergènes présents dans vos plats ?
@@ -82,7 +141,10 @@ nlu:
     - Est-ce que vos plats contiennent des fruits de mer ?
     - Les plats du menu contiennent-ils des noix ?
     - Quels allergènes dois-je éviter dans vos plats ?
-
+    - Vos plats contiennent-ils du gluten ?
+    - Y a-t-il des produits laitiers dans vos plats ?
+    - Quels plats sont sans arachides ?
+    - Les plats contiennent-ils du soja ?
 - intent: menu_complet
   examples: |
     - Pouvez-vous me donner le lien vers le menu complet ?
@@ -92,3 +154,21 @@ nlu:
     - Je voudrais consulter le menu complet, où puis-je le trouver ?
     - Est-il possible de consulter le menu complet en ligne ?
     - Où puis-je trouver une liste complète des plats disponibles ?
+    - Je veux voir le menu complet
+    - Montrez-moi le menu complet, s'il vous plaît
+    - Avez-vous une carte complète des plats ?
+    - Puis-je accéder au menu complet sur votre site web ?
+- intent: obtenir_reservation
+  examples: |
+    - Je voudrais obtenir les détails de ma réservation
+    - Pouvez-vous me donner les informations sur ma réservation ?
+    - J'ai besoin des détails de ma réservation
+    - Donnez-moi les informations de ma réservation
+    - Mon numéro de réservation est [ABCD1234](reservation_id)
+    - Voici mon numéro de réservation : [XYZ9876](reservation_id)
+    - Réservation numéro [12345678](reservation_id)
+    - Je veux vérifier ma réservation avec le numéro [ABCD1234](reservation_id)
+    - Détails de la réservation numéro [WXYZ5678](reservation_id)
+    - Est-ce que ma réservation sous le numéro [ABCD1234](reservation_id) est confirmée ?
+    - [NCTY8UVO](reservation_id)
+    - [NCTY8UVO](reservation_id)

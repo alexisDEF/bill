@@ -1,55 +1,175 @@
+version: "3.0"
+
 stories:
-- story: Salutations et au revoir
-  steps:
-  - intent: salutation
-  - action: utter_greet
-  - intent: au_revoir
-  - action: utter_goodbye
+  - story: reservation de table
+    steps:
+      - intent: reservation
+      - action: utter_ask_date
+      - intent: inform
+        entities:
+          - date: "demain"
+      - action: utter_ask_nombre_personnes
+      - intent: inform
+        entities:
+          - nombre_personnes: "2"
+      - action: utter_ask_nom_reservation
+      - intent: inform
+        entities:
+          - nom_reservation: "Dupont"
+      - action: utter_ask_telephone
+      - intent: inform
+        entities:
+          - telephone: "0612345678"
+      - action: action_confirm_reservation
+  - story: interactive_story_1
+    steps:
+      - intent: reservation
+      - action: utter_ask_date
+      - intent: inform
+        entities:
+          - date: 19 juin
+      - slot_was_set:
+          - date: 19 juin
+      - action: utter_ask_nombre_personnes
+      - intent: inform
+        entities:
+          - nombre_personnes: 4 personnes
+      - slot_was_set:
+          - nombre_personnes: 4 personnes
+      - action: utter_ask_nom_reservation
+      - intent: inform
+        entities:
+          - nom_reservation: Bernard
+      - action: utter_ask_telephone
+      - intent: inform
+        entities:
+          - telephone: 06 01 19 01 01
+      - slot_was_set:
+          - telephone: 06 01 19 01 01
+      - action: action_confirm_reservation
 
-- story: Faire une réservation
+  - story: interactive_story_2
+    steps:
+      - intent: reservation
+      - action: utter_ask_date
+      - intent: inform
+        entities:
+          - date: 19 juin
+          - heure: 19h
+      - slot_was_set:
+          - date: 19 juin
+      - action: utter_ask_nombre_personnes
+      - intent: inform
+        entities:
+          - nombre_personnes: 4 personnes
+      - slot_was_set:
+          - nombre_personnes: 4 personnes
+      - action: utter_ask_nom_reservation
+      - intent: inform
+      - intent: inform
+        entities:
+          - nom_reservation: Rimbaud
+      - action: utter_ask_telephone
+      - intent: inform
+        entities:
+          - telephone: 06 01 03 01 01
+      - slot_was_set:
+          - telephone: 06 01 03 01 01
+      - action: action_confirm_reservation
+
+  - story: interactive_story_3
+    steps:
+      - intent: reservation
+      - action: utter_ask_date
+      - intent: inform
+        entities:
+          - date: 10 juin
+          - heure: 18h
+      - slot_was_set:
+          - date: 10 juin
+      - action: utter_ask_nombre_personnes
+      - intent: inform
+        entities:
+          - nombre_personnes: 10 personnes
+      - slot_was_set:
+          - nombre_personnes: 10 personnes
+      - action: utter_ask_nom_reservation
+      - intent: inform
+        entities:
+          - nom_reservation: Bernard
+      - slot_was_set:
+          - nom_reservation: Bernard
+      - action: utter_ask_telephone
+      - intent: inform
+        entities:
+          - telephone: 01 01 03 02 01
+      - slot_was_set:
+          - telephone: 01 01 03 02 01
+      - action: action_confirm_reservation
+
+  - story: interactive_story_4
+    steps:
+      - intent: reservation
+      - action: utter_ask_date
+      - intent: inform
+        entities:
+          - date: 4 mai
+          - heure: 14h
+      - slot_was_set:
+          - date: 4 mai
+      - action: utter_ask_nombre_personnes
+      - intent: inform
+        entities:
+          - nombre_personnes: 3 personnes
+      - slot_was_set:
+          - nombre_personnes: 3 personnes
+      - action: utter_ask_nom_reservation
+      - intent: inform
+      - intent: inform
+        entities:
+          - nom_reservation: Bernardou
+      - action: utter_ask_telephone
+      - intent: inform
+        entities:
+          - telephone: 01 03 01 01 02
+      - slot_was_set:
+          - telephone: 01 03 01 01 02
+      - action: action_confirm_reservation
+  - story: obtenir les détails de la réservation
+    steps:
+    - intent: obtenir_reservation
+    - action: utter_ask_reservation_id
+    - intent: inform
+      entities:
+        - reservation_id: "ABCD1234"
+    - action: action_obtenir_reservation
+
+  - story: interactive_story_5
+    steps:
+    - intent: obtenir_reservation
+    - action: utter_ask_reservation_id
+    - intent: nlu_fallback
+    - intent: obtenir_reservation
+      entities:
+      - reservation_id: NCTY8UVO
+
+- story: interactive_story_1
   steps:
-  - intent: reservation
-  - action: utter_ask_date
-  - intent: inform
+  - intent: obtenir_reservation
+  - action: utter_ask_reservation_id
+  - intent: obtenir_reservation
     entities:
-    - date
-  - action: utter_ask_nombre_personnes
-  - intent: inform
+    - reservation_id: NCTY8UVO
+  - slot_was_set:
+    - reservation_id: NCTY8UVO
+
+- story: interactive_story_2
+  steps:
+  - intent: obtenir_reservation
+  - action: utter_ask_reservation_id
+  - intent: obtenir_reservation
     entities:
-    - nombre_personnes
-  - action: utter_ask_nom_reservation
-  - intent: inform
-    entities:
-    - nom_reservation
-  - action: utter_ask_telephone
-  - intent: inform
-    entities:
-    - telephone
-  - action: action_reserver_table
-  - action: utter_confirmation_reservation
-
-- story: Vérifier la disponibilité
-  steps:
-  - intent: disponibilite
-  - action: action_verifier_disponibilite
-
-- story: Annuler une réservation
-  steps:
-  - intent: annulation
-  - action: action_annuler_reservation
-  - action: utter_confirmation_annulation
-
-- story: Obtenir le menu du jour
-  steps:
-  - intent: menu_jour
-  - action: action_obtenir_menu_jour
-
-- story: Obtenir la liste des allergènes
-  steps:
-  - intent: allergenes
-  - action: action_obtenir_allergenes
-
-- story: Obtenir le lien vers le menu complet
-  steps:
-  - intent: menu_complet
-  - action: action_obtenir_menu_complet
+    - reservation_id: NCTY8UVO
+  - slot_was_set:
+    - reservation_id: NCTY8UVO
+  - action: action_obtenir_reservation

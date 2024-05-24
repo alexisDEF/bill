@@ -1,0 +1,18 @@
+{
+  "lookup": {
+    "rules": {},
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"reservation_form\"}, \"prev_action\": {\"action_name\": \"reservation_form\"}, \"slots\": {\"date\": [1.0], \"heure\": [1.0], \"nom_reservation\": [1.0], \"nombre_personnes\": [1.0], \"telephone\": [1.0]}, \"user\": {\"intent\": \"reservation\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"reservation_form\"}}, {\"active_loop\": {\"name\": \"reservation_form\"}, \"prev_action\": {\"action_name\": \"action_confirm_reservation\"}, \"slots\": {\"date\": [1.0], \"heure\": [1.0], \"nom_reservation\": [1.0], \"nombre_personnes\": [1.0], \"telephone\": [1.0]}, \"user\": {\"intent\": \"reservation\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "predicting default action with intent restart",
+      "handling active loops and forms - reservation_form",
+      "handling active loops and forms - reservation_form - action_listen"
+    ]
+  }
+}
