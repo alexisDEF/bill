@@ -6,6 +6,7 @@ Ce projet est un chatbot conçu pour aider les utilisateurs à effectuer des ré
 
 - Python 3.7 ou plus récent
 - Rasa 3.0 ou plus récent
+Important : le projet a été entièrement réalisé sur une VM Ubuntu. Le guide d'installation ci-dessous montre comment setup le projet sur Ubuntu, et non sur Windows.
 
 ## Installation
 
