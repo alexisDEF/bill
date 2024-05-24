@@ -1,4 +1,4 @@
-# Chatbot de Réservation de Restaurant
+# Bill : Un chatbot de Réservation de Restaurant
 
 Ce projet est un chatbot conçu pour aider les utilisateurs à effectuer des réservations de table dans un restaurant, vérifier les disponibilités, obtenir des informations sur le menu du jour, et plus encore.
 
@@ -12,8 +12,8 @@ Important : le projet a été entièrement réalisé sur une VM Ubuntu. Le guide
 
 1. Clonez le repository :
     ```bash
-    git clone https://github.com/votre-utilisateur/votre-repository.git
-    cd votre-repository
+    git clone https://github.com/alexisDEF/bill.git
+    cd bill
     ```
 
 2. Créez un environnement virtuel et activez-le :
