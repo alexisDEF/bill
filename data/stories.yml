@@ -153,23 +153,53 @@ stories:
       entities:
       - reservation_id: NCTY8UVO
 
-- story: interactive_story_1
-  steps:
-  - intent: obtenir_reservation
-  - action: utter_ask_reservation_id
-  - intent: obtenir_reservation
-    entities:
-    - reservation_id: NCTY8UVO
-  - slot_was_set:
-    - reservation_id: NCTY8UVO
+  - story: interactive_story_6
+    steps:
+    - intent: obtenir_reservation
+    - action: utter_ask_reservation_id
+    - intent: obtenir_reservation
+      entities:
+      - reservation_id: NCTY8UVO
+    - slot_was_set:
+      - reservation_id: NCTY8UVO
 
-- story: interactive_story_2
-  steps:
-  - intent: obtenir_reservation
-  - action: utter_ask_reservation_id
-  - intent: obtenir_reservation
-    entities:
-    - reservation_id: NCTY8UVO
-  - slot_was_set:
-    - reservation_id: NCTY8UVO
-  - action: action_obtenir_reservation
+  - story: interactive_story_7
+    steps:
+    - intent: obtenir_reservation
+    - action: utter_ask_reservation_id
+    - intent: obtenir_reservation
+      entities:
+      - reservation_id: NCTY8UVO
+    - slot_was_set:
+      - reservation_id: NCTY8UVO
+    - action: action_obtenir_reservation
+
+  - story: interactive_story_8
+    steps:
+    - intent: supprimer_reservation
+    - action: utter_ask_reservation_id
+    - intent: supprimer_reservation
+      entities:
+      - reservation_id: NCTY8UVO
+    - slot_was_set:
+      - reservation_id: NCTY8UVO
+    - action: action_supprimer_reservation
+  - story: interactive_story_9
+    steps:
+    - intent: supprimer_reservation
+    - action: utter_ask_reservation_id
+    - intent: obtenir_reservation
+      entities:
+      - reservation_id: NCTY8UVO
+    - slot_was_set:
+      - reservation_id: NCTY8UVO
+    - action: action_supprimer_reservation
+
+  - story: interactive_story_10
+    steps:
+    - intent: allergenes
+    - action: action_obtenir_allergenes
+    - intent: menu_complet
+    - action: action_obtenir_menu_complet
+    - intent: menu_jour
+    - action: action_obtenir_menu_jour

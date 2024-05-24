@@ -93,19 +93,6 @@ nlu:
     - [3 personnes](nombre_personnes)
     - [Bernardou](nom_reservation)
     - [01 03 01 01 02](telephone)
-- intent: disponibilite
-  examples: |
-    - Est-ce que vous avez des tables disponibles le [10 mai](date) pour [2 personnes](nombre_personnes) ?
-    - Y a-t-il une table disponible pour [6 personnes](nombre_personnes) le [20 mai](date) à [20h](heure) ?
-    - Avez-vous des places disponibles pour [4 personnes](nombre_personnes) le [15 juin](date) à [18h](heure) ?
-    - Quelles sont vos disponibilités pour [3 personnes](nombre_personnes) le [25 juin](date) à [19h](heure) ?
-    - Est-il possible de réserver une table pour [5 personnes](nombre_personnes) le [30 juin](date) à [20h](heure) ?
-    - Pouvez-vous me dire s'il y a une table disponible pour [8 personnes](nombre_personnes) le [5 juillet](date) à [19h](heure) ?
-    - Avez-vous des tables libres le [1er août](date) pour [2 personnes](nombre_personnes) ?
-    - Y a-t-il une disponibilité pour [4 personnes](nombre_personnes) le [10 septembre](date) à [18h](heure) ?
-    - Est-ce que je peux réserver une table pour [6 personnes](nombre_personnes) le [15 octobre](date) ?
-    - Pouvez-vous vérifier si une table est libre pour [5 personnes](nombre_personnes) le [20 novembre](date) à [19h](heure) ?
-    - Est-ce possible de réserver une table pour [3 personnes](nombre_personnes) le [25 décembre](date) à [21h](heure) ?
 - intent: annulation
   examples: |
     - Je voudrais annuler ma réservation pour [demain](date)
@@ -132,19 +119,49 @@ nlu:
     - Que proposez-vous comme plats aujourd'hui ?
     - Quelles sont les options de menu pour aujourd'hui ?
     - Y a-t-il des plats sans gluten au menu aujourd'hui ?
-- intent: allergenes
+    - Que servez-vous aujourd'hui ?
+    - Pouvez-vous m'informer sur le menu du jour ?
+    - Quels sont les plats principaux du jour ?
+    - Avez-vous des spécialités aujourd'hui ?
+    - Que puis-je manger aujourd'hui ?
+    - Quels sont les desserts du jour ?
+    - Quelles sont vos entrées aujourd'hui ?
+    - Est-ce que vous avez un menu spécial aujourd'hui ?
+    - Quelle est la soupe du jour ?
+    - Quels sont les plats végétariens du jour ?
+    - Quels sont les plats vegan du jour ?
+    - Quelles sont les options sans lactose aujourd'hui ?
+    - Quel est le plat du jour ?
+    - Quelles sont les boissons disponibles aujourd'hui ?
+
+- intent: menu_jour
   examples: |
-    - Quels sont les allergènes présents dans vos plats ?
-    - Avez-vous une liste des allergènes pour vos plats ?
-    - Pouvez-vous me dire quels sont les allergènes dans le plat X ?
-    - Y a-t-il des plats sans allergènes dans votre menu ?
-    - Est-ce que vos plats contiennent des fruits de mer ?
-    - Les plats du menu contiennent-ils des noix ?
-    - Quels allergènes dois-je éviter dans vos plats ?
-    - Vos plats contiennent-ils du gluten ?
-    - Y a-t-il des produits laitiers dans vos plats ?
-    - Quels plats sont sans arachides ?
-    - Les plats contiennent-ils du soja ?
+    - Quel est le menu du jour ?
+    - Pouvez-vous me dire ce qu'il y a au menu aujourd'hui ?
+    - Quels plats proposez-vous aujourd'hui ?
+    - Y a-t-il des plats spéciaux au menu aujourd'hui ?
+    - Avez-vous des suggestions de plats pour aujourd'hui ?
+    - Est-ce que le menu d'aujourd'hui inclut des plats végétariens ?
+    - Quels sont les plats vedettes du menu d'aujourd'hui ?
+    - Quels sont les plats du jour ?
+    - Que proposez-vous comme plats aujourd'hui ?
+    - Quelles sont les options de menu pour aujourd'hui ?
+    - Y a-t-il des plats sans gluten au menu aujourd'hui ?
+    - Que servez-vous aujourd'hui ?
+    - Pouvez-vous m'informer sur le menu du jour ?
+    - Quels sont les plats principaux du jour ?
+    - Avez-vous des spécialités aujourd'hui ?
+    - Que puis-je manger aujourd'hui ?
+    - Quels sont les desserts du jour ?
+    - Quelles sont vos entrées aujourd'hui ?
+    - Est-ce que vous avez un menu spécial aujourd'hui ?
+    - Quelle est la soupe du jour ?
+    - Quels sont les plats végétariens du jour ?
+    - Quels sont les plats vegan du jour ?
+    - Quelles sont les options sans lactose aujourd'hui ?
+    - Quel est le plat du jour ?
+    - Quelles sont les boissons disponibles aujourd'hui ?
+
 - intent: menu_complet
   examples: |
     - Pouvez-vous me donner le lien vers le menu complet ?
@@ -158,6 +175,20 @@ nlu:
     - Montrez-moi le menu complet, s'il vous plaît
     - Avez-vous une carte complète des plats ?
     - Puis-je accéder au menu complet sur votre site web ?
+    - Où est le menu complet ?
+    - Je voudrais voir tous les plats disponibles
+    - Pouvez-vous me montrer la carte complète ?
+    - Comment puis-je consulter le menu complet ?
+    - Avez-vous un menu complet que je peux voir ?
+    - Où puis-je voir tous les plats que vous proposez ?
+    - Y a-t-il un endroit où je peux consulter le menu complet ?
+    - Je veux voir la liste complète des plats
+    - Où puis-je accéder au menu complet ?
+    - Puis-je obtenir une copie du menu complet ?
+    - Où est la carte complète des plats ?
+    - Montrez-moi la carte des plats, s'il vous plaît
+    - Je souhaite voir tous les plats disponibles
+
 - intent: obtenir_reservation
   examples: |
     - Je voudrais obtenir les détails de ma réservation
@@ -204,4 +235,26 @@ nlu:
     - [LMNOP789](reservation_id)
     - Vérifiez la réservation numéro [QWERT5678](reservation_id)
     - Quels sont les détails de ma réservation numéro [ASDF3456](reservation_id) ?
-
+- intent: supprimer_reservation
+  examples: |
+    - Je voudrais supprimer ma réservation
+    - Pouvez-vous annuler ma réservation ?
+    - J'aimerais supprimer la réservation avec le numéro [ABCD1234](reservation_id)
+    - Annulez ma réservation
+    - Supprimez la réservation numéro [XYZ9876](reservation_id)
+    - Je veux annuler ma réservation
+    - Annulation de la réservation [12345678](reservation_id)
+    - Je dois annuler ma réservation avec le numéro [ABCD1234](reservation_id)
+    - Annulez la réservation pour moi
+    - Supprimez ma réservation avec le numéro [WXYZ5678](reservation_id)
+    - Mon numéro de réservation est [NCTY8UVO](reservation_id), veuillez la supprimer
+    - Veuillez annuler la réservation [0987POIU](reservation_id)
+    - Je souhaite annuler la réservation faite au nom de [Dupont](nom_reservation)
+    - Est-il possible d'annuler la réservation numéro [LMNOP987](reservation_id) ?
+    - Je veux annuler ma réservation avec le numéro [QWERT123](reservation_id)
+    - Merci de supprimer la réservation [ZXCV4567](reservation_id)
+    - Annulation de réservation pour le numéro [TYUI5678](reservation_id)
+    - Je n'ai plus besoin de ma réservation [JKL0987](reservation_id)
+    - Annulez ma réservation avec le numéro [PLM7654](reservation_id)
+    - Veuillez annuler la réservation au nom de [Martin](nom_reservation)
+    - je veux supprimer ma réservation

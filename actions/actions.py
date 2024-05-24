@@ -6,6 +6,7 @@ import csv
 import os
 import random
 import string
+RESERVATION_FILE = "reservations.csv"
 
 
 class ActionVerifierDisponibilite(Action):
@@ -17,14 +18,6 @@ class ActionVerifierDisponibilite(Action):
         dispatcher.utter_message(text="Je vais vérifier la disponibilité pour vous. \n ... \n C'est tout bon")
         return []
 
-class ActionAnnulerReservation(Action):
-    def name(self) -> Text:
-        return "action_annuler_reservation"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        # Votre logique d'annulation ici
-        dispatcher.utter_message(text="Votre réservation a été annulée avec succès.")
-        return []
 
 class ActionObtenirMenuJour(Action):
     def name(self) -> Text:
@@ -58,35 +51,11 @@ class ActionObtenirMenuComplet(Action):
 
 
 
-# class ActionReserverTable(Action):
-#     def name(self) -> Text:
-#         return "action_confirm_reservation"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         date = tracker.get_slot('date')
-#         nombre_personnes = tracker.get_slot('nombre_personnes')
-#         nom_reservation = tracker.get_slot('nom_reservation')
-#         telephone = tracker.get_slot('telephone')
-        
-#         numero_reservation = str(uuid.uuid4())  # Générer un numéro de réservation unique
-        
-#         confirmation_message = (f"Votre réservation pour le {date} pour {nombre_personnes} personnes "
-#                                 f"au nom de {nom_reservation} a été confirmée. "
-#                                 f"Votre numéro de réservation est {numero_reservation}.")
-        
-#         dispatcher.utter_message(text=confirmation_message)
-#         return []
-
-
-
-# Définir le chemin du fichier CSV pour stocker les réservations
-RESERVATION_FILE = "reservations.csv"
-
-def generate_reservation_id():
+def generateReservationId():
     """Génère un ID de réservation unique."""
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=8))
 
-def save_reservation_to_csv(reservation_id, date, nombre_personnes, nom_reservation, telephone):
+def saveReservationToCsv(reservation_id, date, nombre_personnes, nom_reservation, telephone):
     """Sauvegarde la réservation dans un fichier CSV."""
     file_exists = os.path.isfile(RESERVATION_FILE)
     
@@ -97,7 +66,7 @@ def save_reservation_to_csv(reservation_id, date, nombre_personnes, nom_reservat
             writer.writerow(["reservation_id", "date", "nombre_personnes", "nom_reservation", "telephone"])
         writer.writerow([reservation_id, date, nombre_personnes, nom_reservation, telephone])
 
-def read_reservation_from_csv(reservation_id):
+def readReservationFromCsv(reservation_id):
     """Lit les détails de la réservation depuis le fichier CSV."""
     if not os.path.isfile(RESERVATION_FILE):
         return None
@@ -120,12 +89,11 @@ class ActionReserverTable(Action):
         telephone = tracker.get_slot('telephone')
         
         # Générer un ID de réservation unique
-        reservation_id = generate_reservation_id()
+        reservation_id = generateReservationId()
         
         # Sauvegarder la réservation dans le fichier CSV
-        save_reservation_to_csv(reservation_id, date, nombre_personnes, nom_reservation, telephone)
+        saveReservationToCsv(reservation_id, date, nombre_personnes, nom_reservation, telephone)
         
-        # Message de confirmation avec l'ID de réservation
         confirmation_message = (f"Votre réservation pour {nombre_personnes} personnes le {date} sous le nom {nom_reservation} "
                                 f"a été confirmée. Votre numéro de réservation est {reservation_id}.")
         
@@ -139,7 +107,7 @@ class ActionObtenirReservation(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         reservation_id = tracker.get_slot('reservation_id')
         
-        reservation = read_reservation_from_csv(reservation_id)
+        reservation = readReservationFromCsv(reservation_id)
         
         if reservation:
             reservation_info = (f"Réservation {reservation_id} : \n"
@@ -151,4 +119,44 @@ class ActionObtenirReservation(Action):
             reservation_info = f"Je ne trouve aucune réservation avec le numéro {reservation_id}."
         
         dispatcher.utter_message(text=reservation_info)
+        return []
+
+
+def deleteReservationFromCsv(reservation_id):
+    """Supprime la réservation du fichier CSV."""
+    if not os.path.isfile(RESERVATION_FILE):
+        return False
+    
+    rows = []
+    found = False
+    with open(RESERVATION_FILE, mode='r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            if row["reservation_id"] != reservation_id:
+                rows.append(row)
+            else:
+                found = True
+    
+    if found:
+        with open(RESERVATION_FILE, mode='w', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=["reservation_id", "date", "nombre_personnes", "nom_reservation", "telephone"])
+            writer.writeheader()
+            writer.writerows(rows)
+    
+    return found
+
+
+class ActionSupprimerReservation(Action):
+    def name(self) -> Text:
+        return "action_supprimer_reservation"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        reservation_id = tracker.get_slot('reservation_id')
+        
+        if deleteReservationFromCsv(reservation_id):
+            message = f"La réservation avec le numéro {reservation_id} a été supprimée avec succès."
+        else:
+            message = f"Aucune réservation trouvée avec le numéro {reservation_id}."
+        
+        dispatcher.utter_message(text=message)
         return []
