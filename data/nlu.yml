@@ -171,4 +171,37 @@ nlu:
     - Détails de la réservation numéro [WXYZ5678](reservation_id)
     - Est-ce que ma réservation sous le numéro [ABCD1234](reservation_id) est confirmée ?
     - [NCTY8UVO](reservation_id)
-    - [NCTY8UVO](reservation_id)
+    - Je voudrais voir les détails de ma réservation
+    - Vérifiez ma réservation numéro [LMNOP987](reservation_id)
+    - J'ai une réservation avec le numéro [QWERT123](reservation_id)
+    - Détails pour la réservation numéro [ZXCV4567](reservation_id)
+    - Est-ce que ma réservation avec le numéro [TYUI5678](reservation_id) est toujours valide ?
+    - Pouvez-vous vérifier la réservation [JKL0987](reservation_id) ?
+    - Je voudrais connaître les informations de ma réservation [PLM7654](reservation_id)
+    - Récupérer les détails de la réservation [ASDF2345](reservation_id)
+    - Confirmation de réservation avec le numéro [GHJK8765](reservation_id)
+    - Est-ce que ma réservation avec le numéro [BNM6543](reservation_id) est confirmée ?
+    - [ERDF5678](reservation_id)
+    - Mon numéro de réservation est [POIU3456](reservation_id), donnez-moi les détails
+    - Vérifiez ma réservation avec le numéro [HJKL4567](reservation_id)
+    - J'ai besoin de vérifier ma réservation, numéro [CVBN1234](reservation_id)
+    - Donnez-moi les informations pour la réservation [WERT5678](reservation_id)
+    - Est-ce que la réservation avec le numéro [YTRE0987](reservation_id) est toujours valide ?
+    - Quels sont les détails de ma réservation [UIOP6789](reservation_id) ?
+    - J'aimerais voir ma réservation, numéro [GHJK8765](reservation_id)
+    - Vérifiez la réservation [TYUI2345](reservation_id)
+    - [PLMN0987](reservation_id)
+    - Détails pour la réservation avec le numéro [QWER5678](reservation_id)
+    - Est-ce que ma réservation sous le numéro [ASDF1234](reservation_id) est confirmée ?
+    - J'ai besoin des détails pour ma réservation [ZXCV9876](reservation_id)
+    - Donnez-moi les détails de ma réservation [BNMK4567](reservation_id)
+    - Mon numéro de réservation est [YUIO3456](reservation_id)
+    - Pouvez-vous vérifier la réservation numéro [HJKL5678](reservation_id) ?
+    - Récupérer les informations pour la réservation [NMKL8765](reservation_id)
+    - Est-ce que ma réservation avec le numéro [WERT6789](reservation_id) est valide ?
+    - J'aimerais voir les détails de ma réservation [TYUI2345](reservation_id)
+    - Détails pour ma réservation [POIU3456](reservation_id)
+    - [LMNOP789](reservation_id)
+    - Vérifiez la réservation numéro [QWERT5678](reservation_id)
+    - Quels sont les détails de ma réservation numéro [ASDF3456](reservation_id) ?
+
